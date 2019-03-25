@@ -27,25 +27,21 @@ export default class MailUtil {
         let lowerTimeArray = timeArray[0].split(':');
         let uppertimeArray = timeArray[1].split(':');
         
-       
-
+        // Create new obj to get rid of refference
         let timeLowerBound = moment(timeZonedDateTime);
         timeLowerBound.set('millisecond',0);
         timeLowerBound.set('second',0);
         timeLowerBound.set('minutes',parseInt(lowerTimeArray[1]));
         timeLowerBound.set('hours',parseInt(lowerTimeArray[0]));
         
+        // Create new obj to get rid of refference
         let timeUpperBound = moment(timeZonedDateTime);
         timeUpperBound.set('millisecond',0);
         timeUpperBound.set('second',0);
         timeUpperBound.set('minutes',parseInt(uppertimeArray[1]));
         timeUpperBound.set('hours', parseInt(uppertimeArray[0]));
-        console.log(timeUpperBound);
-        console.log(timeLowerBound);
-        console.log(timeZonedDateTime);
-        
-        return (timeZonedDateTime >= timeLowerBound && timeZonedDateTime <= timeUpperBound);
-        
+  
+        return (timeZonedDateTime >= timeLowerBound && timeZonedDateTime <= timeUpperBound);   
     }
    
     public static async sendMailSendGrid(mail :any)  {
